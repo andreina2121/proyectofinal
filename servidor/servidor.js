@@ -17,6 +17,17 @@ app.use(express.static(publicPath));
 io.on('connection', (socket) => {
 	console.log('Nueva conexión');
 
+
+	socket.emit('newMessage', {
+		from: 'John',
+		text: 'Nos vemos',
+		createdAt: 1432
+	});
+
+	socket.on('createMessage', (message) => {
+		console.log('createMessage', message);
+	});  //recibir del cliente
+
 	socket.on('disconnect', () => {
 		console.log('Cliente desconectado');
 	});

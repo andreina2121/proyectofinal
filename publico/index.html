@@ -9,19 +9,7 @@
 <p>Bienvenido</p>
 
 <script src="/socket.io/socket.io.js"></script> 
-<script>
-	
-	var socket = io(); //metodo de la libreria, sirve para iniciar la solicitud al servidor para abrir la sesion y mantenerla abierta
-
-	socket.on('connect', () => {
-		console.log('Conectado');
-	});
-
-	socket.on('disconnect', () => {
-		console.log('Desconectado');
-	});
-	
-</script>
+<script src="/js/index.js"></script>
 
 
 </body>
