@@ -42,7 +42,6 @@
 
 	*/
 
-	
 
 	var botonUbicacion = jQuery('#enviar-ubicacion');
 	botonUbicacion.on('click', function () {
@@ -51,12 +50,32 @@
 		}
 
 
-		navigator.geolocation.getCurrentPosition(function (position) {
+		navigator.geolocation.getCurrentPosition(async position =>{
 
-			socket.emit('createLocationMessage', {
+
+				socket.emit('createLocationMessage', {
 				latitude: position.coords.latitude,
-				longitude: position.coords.longitude
+				longitude: position.coords.longitude,
+
+
 			});
+				
+		const lati = position.coords.latitude;
+  		const lon = position.coords.longitude;
+		const data = { lati, lon };
+  		const options = {
+  			method: 'POST',
+  			headers: {
+      'Content-Type': 'application/json'
+    },
+  			body: JSON.stringify(data)
+  		};
+
+
+  		const response = await fetch('/geoloc',options);
+  		const json = await response.json();
+  		console.log(json);
+			
 
 		}, function () {
 
