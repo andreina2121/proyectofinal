@@ -104,7 +104,7 @@ app.post('/sms', (req, res) => {
 	var numeroa = req.body.numeroa
 
 	messagebird.messages.create({
-		originator: 'SDKDemo',
+		originator: 'Asistencia 911',
  		recipients : numeroa,
   		body : 'Este es un mensaje'
 }, function(err, response ){
