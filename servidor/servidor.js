@@ -22,7 +22,7 @@ app.use(express.static(publicPath));
 app.use(bodyparser.urlencoded({extended:true}))
 app.use(bodyparser.json())
 
-const messagebird = require('messagebird')('leE5EJe07YwPwtT7IraYW1DGF');
+const messagebird = require('messagebird')('6nZwXMBQTf0Yhi2XE8QWHiD53');
 
 //nombre base de datos
 const dbName = 'database';
