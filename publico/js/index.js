@@ -19,7 +19,7 @@
 
 	socket.on('newLocationMessage', function (message) {
 		var li = jQuery('<li></li>');
-		var a = jQuery('<a target="_blank">Ubicación</a>');
+		var a = jQuery('<a target="_blank">Desplegar ubicación</a>');
 
 		li.text(`${message.from}: `);
 		a.attr('href', message.url);
@@ -59,7 +59,7 @@
 
 
 			});
-				
+
 		const lati = position.coords.latitude;
   		const lon = position.coords.longitude;
 		const data = { lati, lon };

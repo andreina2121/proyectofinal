@@ -22,7 +22,7 @@ app.use(express.static(publicPath));
 app.use(bodyparser.urlencoded({extended:true}))
 app.use(bodyparser.json())
 
-const messagebird = require('messagebird')('kQ7pywAmL14qvG8IL12VN3p2H');
+const messagebird = require('messagebird')('CwmgZhawmdlh5pnuGOpy2zUgd');
 
 //nombre base de datos
 const dbName = 'database';
@@ -101,11 +101,11 @@ app.get('/fetch',  function(req, res) {
 
 app.post('/sms', (req, res) => {
 
-	var numero = req.body.numero
+	var numeroa = req.body.numeroa
 
 	messagebird.messages.create({
 		originator: 'SDKDemo',
- 		recipients : numero,
+ 		recipients : numeroa,
   		body : 'Este es un mensaje'
 }, function(err, response ){
   if (err) {
