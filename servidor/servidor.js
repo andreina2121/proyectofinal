@@ -22,7 +22,7 @@ app.use(express.static(publicPath));
 app.use(bodyparser.urlencoded({extended:true}))
 app.use(bodyparser.json())
 
-const messagebird = require('messagebird')('6nZwXMBQTf0Yhi2XE8QWHiD53');
+const messagebird = require('messagebird')('70NFlwTis5FFTWGKSj0uHG0fN');
 
 //nombre base de datos
 const dbName = 'database';
@@ -121,6 +121,7 @@ app.post('/sms', (req, res) => {
 	res.redirect("/index.html");
 
 });
+
 
 
 
