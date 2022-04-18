@@ -3,7 +3,7 @@ const http = require('http');
 const express = require('express');
 const socketIO = require('socket.io');
 
-const {generateMessage} = require('./utils/message')
+const {generateMessage, generateLocationMessage} = require('./utils/message')
 
 const publicPath = path.join(__dirname, '../publico'); //configuracion para ir directo a la ruta que queremos, y no tener que salir para volver a entrar
 const port = process.env.PORT || 3002;
@@ -31,10 +31,12 @@ io.on('connection', (socket) => {
 		io.emit('newMessage', generateMessage(message.from, message.text)); 
 		callback('Esto es del servidor'); 
 
-
-
 	});  //listener
 
+
+	socket.on('createLocationMessage', (coords) => {
+		io.emit('newLocationMessage', generateLocationMessage('Admin', coords.latitude, coords.longitude));
+	});
 
 
 

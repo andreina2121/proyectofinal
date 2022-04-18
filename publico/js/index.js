@@ -16,6 +16,16 @@
 		jQuery('#messages').append(li);
 	}); //oir un nuevo evento
 
+	socket.on('newLocationMessage', function (message) {
+		var li = jQuery('<li></li>');
+		var a = jQuery('<a target="_blank">Ubicación</a>');
+
+		li.text(`${message.from}: `);
+		a.attr('href', message.url);
+		li.append(a);
+		jQuery('#messages').append(li);
+	});
+
  
 
 	jQuery('#message-form').on('submit', function (e) {
@@ -27,4 +37,25 @@
 		}, function () {
 
 		});
+	});
+
+	var botonUbicacion = jQuery('#enviar-ubicacion');
+	botonUbicacion.on('click', function () {
+		if(!navigator.geolocation) {
+			return alert('Geolocalización no disponible');
+		}
+
+
+		navigator.geolocation.getCurrentPosition(function (position) {
+
+			socket.emit('createLocationMessage', {
+				latitude: position.coords.latitude,
+				longitude: position.coords.longitude
+			});
+
+		}, function () {
+
+			alert('Geolocalización denegada');
+		});
+
 	});
