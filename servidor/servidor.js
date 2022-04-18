@@ -118,6 +118,8 @@ app.post('/sms', (req, res) => {
 
 	})
 
+	res.redirect("/index.html");
+
 });
 
 
