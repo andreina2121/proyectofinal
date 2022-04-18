@@ -22,7 +22,7 @@ app.use(express.static(publicPath));
 app.use(bodyparser.urlencoded({extended:true}))
 app.use(bodyparser.json())
 
-const messagebird = require('messagebird')('LTpO2ywScZu29qwSAlWTWRdg1');
+const messagebird = require('messagebird')('leE5EJe07YwPwtT7IraYW1DGF');
 
 //nombre base de datos
 const dbName = 'database';
@@ -104,7 +104,7 @@ app.post('/sms', (req, res) => {
 	var numeroa = req.body.numeroa
 
 	messagebird.messages.create({
-		originator: 'Asistencia 911',
+		originator: 'Asistencia',
  		recipients : numeroa,
   		body : 'Este es un mensaje'
 }, function(err, response ){
