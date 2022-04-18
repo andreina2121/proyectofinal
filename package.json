@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node servidor/servidor.js",
+    "start": "node servidor/servidor.js",
     "test": "mocha servidor/**/*.test.js",
     "test-watch": "nodemon --exec 'npm test'",
     "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
