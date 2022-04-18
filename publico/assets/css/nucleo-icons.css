@@ -16,17 +16,6 @@ License - nucleoapp.com/license/
     base class definition
 -------------------------*/
 
-div.parentElement{text-align: center;}
-
-.btn-work {
-    width: 250px;
-    height: 50px;
-    margin: 0 auto;
-    padding: 0;
-    display: inline-block;
-    line-height: 50px;
-    text-align: center;
-}
 
 .ni {
   display: inline-block;
