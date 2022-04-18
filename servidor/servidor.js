@@ -23,14 +23,20 @@ io.on('connection', (socket) => {
 	socket.broadcast.emit('newMessage', generateMessage('Admin', 'Nuevo cliente'));
 
 
-	socket.on('createMessage', (message) => {
+
+
+	socket.on('createMessage', (message, callback) => {
 		console.log('createMessage', message);
 
-		io.emit('newMessage','newMessage', generateMessage(message.from, message.text)); 
+		io.emit('newMessage', generateMessage(message.from, message.text)); 
+		callback('Esto es del servidor'); 
 
 
 
-	});  
+	});  //listener
+
+
+
 
 	socket.on('disconnect', () => {
 		console.log('Cliente desconectado');
