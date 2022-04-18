@@ -22,13 +22,15 @@ app.use(express.static(publicPath));
 app.use(bodyparser.urlencoded({extended:true}))
 app.use(bodyparser.json())
 
-const messagebird = require('messagebird')('SbvecphJxg9TcmfJShKus0XFH');
+
 
 //nombre base de datos
 const dbName = 'database';
 const MongoClient = require('mongodb').MongoClient;
 const url = 'mongodb+srv://andreina:Mariposajaslo21@cluster0.sumcv.mongodb.net/database?retryWrites=true&w=majority';
 const client = new MongoClient(url)
+
+const messagebird = require('messagebird')('PzebpeKfpdFkAeOZFz33wZOwq');
 
 
 
