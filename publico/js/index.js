@@ -61,7 +61,7 @@
 			});
 
 		
-		/* const lati = position.coords.latitude;
+		const lati = position.coords.latitude;
   		const lon = position.coords.longitude;
 		const data = { lati, lon };
   		const options = {
@@ -75,7 +75,7 @@
 
   		const response = await fetch('/geoloc',options);
   		const json = await response.json();
-  		console.log(json); */
+  		console.log(json); 
 			
 
 		}, function () {

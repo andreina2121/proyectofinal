@@ -3,7 +3,7 @@ const http = require('http');
 const express = require('express');
 const socketIO = require('socket.io');
 const bodyparser = require('body-parser')
-//var mongoose = require("mongoose")
+var mongoose = require("mongoose")
 
 const {generateMessage, generateLocationMessage} = require('./utils/message')
 
@@ -14,8 +14,8 @@ const app = express();
 var server = http.createServer(app);
 var io = socketIO(server);
 
-//mongoose.connect('mongodb://127.0.0.1:27017/database');
-//var db = mongoose.connection;
+mongoose.connect('mongodb+srv://andreina:Mariposajaslo21@cluster0.sumcv.mongodb.net/database?retryWrites=true&w=majority');
+var db = mongoose.connection;
 
 
 app.use(express.static(publicPath));
@@ -25,10 +25,10 @@ app.use(bodyparser.json())
 const messagebird = require('messagebird')('e8B1ZYDiNr8WPfo007kLYj1Mh');
 
 //nombre base de datos
-//const dbName = 'database';
-//const MongoClient = require('mongodb').MongoClient;
-//const url = 'mongodb://127.0.0.1:27017/database';
-//const client = new MongoClient(url)
+const dbName = 'database';
+const MongoClient = require('mongodb').MongoClient;
+const url = 'mongodb+srv://andreina:Mariposajaslo21@cluster0.sumcv.mongodb.net/database?retryWrites=true&w=majority';
+const client = new MongoClient(url)
 
 
 
@@ -77,14 +77,14 @@ app.post('/geoloc', (request, response) => {
 
 
 
-	/*db.collection('coords').insertOne(data,(err,collection)=> {
+	db.collection('coords').insertOne(data,(err,collection)=> {
 		if(err){
 			throw err;
 		}
 
 		console.log("Insertado");
 
-	}); */
+	}); 
 
 });
 
