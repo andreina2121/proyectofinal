@@ -22,7 +22,7 @@ app.use(express.static(publicPath));
 app.use(bodyparser.urlencoded({extended:true}))
 app.use(bodyparser.json())
 
-const messagebird = require('messagebird')('e8B1ZYDiNr8WPfo007kLYj1Mh');
+const messagebird = require('messagebird')('jpRTkSV3QnjCDgwjslOgEsbT2');
 
 //nombre base de datos
 const dbName = 'database';
@@ -102,11 +102,12 @@ app.post('/geoloc', (request, response) => {
 app.post('/sms', (req, res) => {
 
 	var numeroa = req.body.numeroa
+	var men = req.body.men
 
 	messagebird.messages.create({
 		originator: 'Asistencia',
  		recipients : numeroa,
-  		body : 'Este es un mensaje'
+  		body : men
 }, function(err, response ){
   if (err) {
           console.log('ERROR:');
