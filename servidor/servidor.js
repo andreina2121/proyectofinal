@@ -18,24 +18,23 @@ app.use(express.static(publicPath));
 io.on('connection', (socket) => {
 	console.log('Nueva conexión');
 
-	socket.emit('newMessage', generateMessage('Admin', 'Bienvenido'));
+	socket.emit('newMessage', generateMessage('Asistencia', 'Bienvenido'));
 
-	socket.broadcast.emit('newMessage', generateMessage('Admin', 'Nuevo cliente'));
-
-
+	socket.broadcast.emit('newMessage', generateMessage('Asistencia', 'Conexión abierta'));
 
 
-	socket.on('createMessage', (message, callback) => {
+
+/*	socket.on('createMessage', (message, callback) => {
 		console.log('createMessage', message);
 
 		io.emit('newMessage', generateMessage(message.from, message.text)); 
 		callback('Esto es del servidor'); 
 
-	});  //listener
+	});  //listener */
 
 
 	socket.on('createLocationMessage', (coords) => {
-		io.emit('newLocationMessage', generateLocationMessage('Admin', coords.latitude, coords.longitude));
+		io.emit('newLocationMessage', generateLocationMessage('Asistencia', coords.latitude, coords.longitude));
 	});
 
 

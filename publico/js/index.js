@@ -8,13 +8,14 @@
 		console.log('Desconectado');
 	});
 
-	socket.on('newMessage', function(message) {
+	 socket.on('newMessage', function(message) {
 		console.log('newMessage', message);
 		var li = jQuery('<li></li>');
 		li.text(`${message.from}: ${message.text}`);
+ 	
 
 		jQuery('#messages').append(li);
-	}); //oir un nuevo evento
+	}); //oir un nuevo evento 
 
 	socket.on('newLocationMessage', function (message) {
 		var li = jQuery('<li></li>');
@@ -28,7 +29,7 @@
 
  
 
-	jQuery('#message-form').on('submit', function (e) {
+/*	jQuery('#message-form').on('submit', function (e) {
 		e.preventDefault();
 
 		socket.emit('createMessage', {
@@ -38,6 +39,10 @@
 
 		});
 	});
+
+	*/
+
+	
 
 	var botonUbicacion = jQuery('#enviar-ubicacion');
 	botonUbicacion.on('click', function () {
